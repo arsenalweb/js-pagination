@@ -117,7 +117,7 @@ function createPreNext (pageCount, pager, mode) {
     disabled = pager.current - 1 <= 0
     var prevPage = pager.current - 1 <= 0 ? 1 : pager.current - 1
     item = {
-      value: pager.prevPageText,
+      value: _config.prevPageText,
       title: _config.lang === 'cn' ? '上一页' : 'Pre page',
       page: prevPage
     }
@@ -126,7 +126,7 @@ function createPreNext (pageCount, pager, mode) {
     var nextPage = pager.current + 1 >= pageCount ? pageCount : pager.current + 1
 
     item = {
-      value: pager.nextPageText,
+      value: _config.nextPageText,
       title: _config.lang === 'cn' ? '下一页' : 'Next page',
       page: nextPage
     }
@@ -196,7 +196,9 @@ const _config = {
   scrollTop: false,
   scrollContainer: 'body',
   adjacent: 2,
-  lang: 'cn'
+  lang: 'en',
+  prevPageText: '⟨',
+  nextPageText: '⟩'
 }
 
 class Pagination {
@@ -207,8 +209,6 @@ class Pagination {
     this.field = document.querySelector(field)
     this.lists = []
     this.current = 1
-	this.prevPageText = '⟨'
-	this.nextPageText = '⟩'
     build(this)
   }
 
